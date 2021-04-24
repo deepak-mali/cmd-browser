@@ -2,12 +2,13 @@ import Joi from '@hapi/joi';
 import { logger } from '../utils';
 
 const schema = Joi.object({
-	body: {
-		numbers: Joi.array().items(Joi.number().strict().required()),
+	query: {
+		browser: Joi.string(),
+		url: Joi.string()
 	},
 }).unknown(true);
 
-export const add = (request, response, next) => {
+export const launch = (request, response, next) => {
 	logger.info(`validating request for endpoint ${request.url}`);
 	const result = Joi.validate(request, schema);
 	if (result.error) {

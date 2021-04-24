@@ -8,12 +8,27 @@ import { logger } from './utils';
  */
 export const routes = (app) => {
 	//Route for addition functionality.
-	app.post('/add', validator.add, (request, response) => {
-		logger.info(`sending request payload for addition...`);
-		const sum = controller.add(request.body.numbers);
-		logger.info(`sending back the response...`)
+	app.get('/start', validator.launch, (request, response) => {
+		logger.info(`Request: start browser.`);
+		controller.launch(request);
+		logger.info(`Response: start browser.`)
 		return response.status(200).json({
-			sum,
+		});
+	});
+
+	app.get('/stop', validator.close, (request, response) => {
+		logger.info(`Request: start browser.`);
+		controller.close(request);
+		logger.info(`Response: start browser.`)
+		return response.status(200).json({
+		});
+	});
+
+	app.get('/stop', validator.close, (request, response) => {
+		logger.info(`Request: start browser.`);
+		controller.close(request);
+		logger.info(`Response: start browser.`)
+		return response.status(200).json({
 		});
 	});
 };

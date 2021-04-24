@@ -1,5 +1,6 @@
-import { add } from './add';
-
+import { launch } from './launch';
+import { close } from './close';
 export {
-	add,
+	launch,
+	close
 };

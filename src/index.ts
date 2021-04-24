@@ -9,9 +9,6 @@ app.use(express.json());
 
 routes(app);
 
-app.listen(port, (err) => {
-	if (err) {
-		throw err;
-	}
+app.listen(port, () => {
 	logger.info(`server is listening to ${port}`);
 });
